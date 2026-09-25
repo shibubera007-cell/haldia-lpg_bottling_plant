@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Haldia LPG Bottling Plant — Bharat Petroleum</title>
+<meta name="description" content="Haldia LPG Bottling Plant — A Unit of Bharat Petroleum. Safe, reliable LPG distribution." />
+<link rel="icon" type="image/png" href="bpcl-logo.png" />
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+:root {
+  --primary: #0072bc;
+  --primary-dark: #005a94;
+  --accent: #ffd200;
+  --dark: #0f172a;
+  --gray: #64748b;
+  --light: #f1f5f9;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+html { scroll-behavior: smooth; }
+body { color: #1e293b; line-height: 1.6; overflow-x: hidden; background: #fff; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 12px rgba(15,23,42,0.08); padding: 10px 0; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo { height: 60px; width: auto; object-fit: contain; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-text .plant-name { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+.brand-text .parent-name { font-size: 0.78rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.nav { display: flex; gap: 22px; align-items: center; }
+.nav a { color: #1e293b; font-size: 0.93rem; font-weight: 600; }
+.nav a:hover { color: var(--primary); }
+.btn-login { background: var(--primary); color: white !important; padding: 9px 20px; border-radius: 6px; font-weight: 600; }
+.btn-login:hover { background: var(--primary-dark); }
+.hamburger { display: none; background: none; border: none; color: var(--primary); font-size: 1.6rem; }
+
+/* HERO */
+.hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; background: var(--dark); }
+.slideshow { position: absolute; inset: 0; }
+.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; }
+.slide.active { opacity: 1; }
+.slide img, .slide video { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,60,120,0.75), rgba(15,23,42,0.6)); }
+.hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; }
+.hero-tag { background: var(--accent); color: var(--primary); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.15em; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; }
+.hero-content h1 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; margin-bottom: 18px; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+.hero-content p { font-size: clamp(1rem, 2vw, 1.25rem); max-width: 700px; opacity: 0.95; }
+.hero-dots { position: absolute; bottom: 40px; display: flex; gap: 12px; z-index: 3; }
+.hero-dots button { width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s; }
+.hero-dots button.active { background: var(--accent); border-color: var(--accent); transform: scale(1.3); }
+
+/* SECTIONS */
+.section { padding: 90px 0; }
+.section-alt { background: var(--light); }
+.section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); text-align: center; margin-bottom: 60px; font-weight: 800; color: var(--dark); }
+.section-title::after { content: ''; display: block; width: 70px; height: 4px; background: var(--primary); margin: 14px auto 0; border-radius: 2px; }
+
+/* GRID & CARDS */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 24px rgba(15,23,42,0.06); transition: transform 0.25s; }
+.card:hover { transform: translateY(-5px); }
+.card h3 { color: var(--dark); margin-bottom: 12px; font-size: 1.15rem; font-weight: 700; }
+.card p { color: #475569; font-size: 0.95rem; }
+.certs { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.certs span { background: #e6f2fb; color: var(--primary-dark); border: 1px solid #b3d9f2; padding: 8px 20px; border-radius: 22px; font-weight: 600; font-size: 0.9rem; }
+
+/* EVENTS */
+.events-wrapper { position: relative; max-width: 1000px; margin: 0 auto; }
+.events-viewport { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; box-shadow: 0 16px 48px rgba(15,23,42,0.15); background: #0f172a; }
+.event-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s ease-in-out; }
+.event-slide.active { opacity: 1; }
+.event-slide img, .event-slide video { width: 100%; height: 100%; object-fit: cover; }
+.event-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 30px 30px; background: linear-gradient(transparent, rgba(15,23,42,0.92)); color: white; }
+.event-caption h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+.event-caption p { font-size: 0.92rem; opacity: 0.9; }
+.event-badge { position: absolute; top: 20px; left: 20px; background: var(--accent); color: var(--primary-dark); font-weight: 800; font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; z-index: 2; }
+.events-nav { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
+.events-nav button { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); background: white; color: var(--primary); font-size: 1.1rem; font-weight: 700; }
+.events-nav button:hover { background: var(--primary); color: white; }
+.events-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.events-dots button { width: 10px; height: 10px; border-radius: 50%; border: none; background: #cbd5e1; cursor: pointer; }
+.events-dots button.active { background: var(--primary); transform: scale(1.3); }
+.events-empty { text-align: center; padding: 60px 20px; color: var(--gray); background: white; border-radius: 16px; }
+
+/* LEADERS */
+.leader-card { display: flex; gap: 24px; align-items: flex-start; }
+.leader-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); flex-shrink: 0; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #94a3b8; }
+.leader-info h3 { color: var(--dark); font-size: 1.25rem; }
+.leader-role { color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; }
+.leader-desig { color: var(--gray); font-size: 0.9rem; margin-bottom: 10px; }
+.leader-message { color: #475569; font-style: italic; font-size: 0.95rem; margin-top: 10px; padding-left: 14px; border-left: 3px solid var(--primary); }
+.leader-contact { margin-top: 14px; font-size: 0.87rem; color: var(--gray); line-height: 1.9; }
+
+/* OFFICERS */
+.officer-card { text-align: center; }
+.officer-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin: 0 auto 18px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #94a3b8; border: 3px solid var(--primary); }
+.officer-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.officer-desig { color: var(--primary); font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; }
+.officer-contact { font-size: 0.83rem; color: var(--gray); line-height: 1.8; }
+
+/* CONTACT */
+.contact-form input, .contact-form textarea { width: 100%; padding: 13px 16px; margin-bottom: 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,114,188,0.1); }
+.btn-primary { background: var(--primary); color: white; border: none; padding: 13px 30px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+.btn-primary:hover { background: var(--primary-dark); }
+
+/* FOOTER */
+.footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 34px 0; font-size: 0.9rem; }
+.footer a { color: var(--accent); }
+.footer .bpcl-line { color: #cbd5e1; margin-top: 6px; font-size: 0.85rem; }
+
+/* MODALS */
+.overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.85); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.overlay.open { display: flex; }
+.modal-box { background: white; padding: 36px; border-radius: 16px; max-width: 520px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); margin: auto; }
+.modal-box h2 { text-align: center; margin-bottom: 20px; color: var(--dark); font-size: 1.35rem; }
+.modal-box p.hint { text-align: center; color: var(--gray); font-size: 0.88rem; margin-bottom: 20px; line-height: 1.6; }
+.modal-box input, .modal-box textarea { width: 100%; padding: 12px 14px; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.94rem; font-family: inherit; }
+.modal-box input:focus, .modal-box textarea:focus { outline: none; border-color: var(--primary); }
+.modal-box label { display: block; font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 5px; }
+.modal-err { color: var(--danger); font-size: 0.88rem; text-align: center; margin-bottom: 12px; min-height: 20px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 10px; }
+.modal-actions button { flex: 1; padding: 12px; border-radius: 8px; font-weight: 600; border: none; font-size: 0.94rem; }
+.btn-cancel { background: #e2e8f0; color: #334155; }
+.btn-cancel:hover { background: #cbd5e1; }
+.btn-save { background: var(--primary); color: white; }
+.btn-save:hover { background: var(--primary-dark); }
+.btn-danger { background: var(--danger); color: white; }
+
+/* ADMIN */
+.admin-panel { position: fixed; inset: 0; background: var(--light); z-index: 998; display: none; overflow-y: auto; }
+.admin-panel.open { display: block; }
+.admin-header { background: var(--dark); color: white; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; gap: 12px; flex-wrap: wrap; }
+.admin-header h2 { font-size: 1.05rem; }
+.admin-header h2 span { color: var(--accent); }
+.admin-header .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.admin-header button { background: var(--primary); border: none; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
+.admin-header button.ghost { background: transparent; border: 1px solid #fff; }
+.admin-header button.danger { background: var(--danger); }
+.admin-header button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.conn-status { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+.conn-dot { width: 10px; height: 10px; border-radius: 50%; background: #94a3b8; flex-shrink: 0; transition: background 0.3s, box-shadow 0.3s; }
+.conn-status.online .conn-dot { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.7); animation: pulse 2s infinite; }
+.conn-status.offline .conn-dot { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.7); animation: pulse 1.2s infinite; }
+.conn-status.connecting .conn-dot { background: #f59e0b; animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.25); opacity: 0.7; } }
+#reconnectBtn.spinning { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.admin-body { padding: 30px; max-width: 1200px; margin: 0 auto; }
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px; }
+.admin-tabs button { background: white; border: 1px solid #cbd5e1; color: var(--dark); padding: 9px 16px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; }
+.admin-tabs button.active { background: var(--primary); color: white; border-color: var(--primary); }
+.admin-tab-content { display: none; }
+.admin-tab-content.active { display: block; }
+.admin-card { background: white; padding: 26px; border-radius: 12px; margin-bottom: 22px; box-shadow: 0 2px 12px rgba(15,23,42,0.05); }
+.admin-card h3 { margin-bottom: 18px; color: var(--dark); font-size: 1.05rem; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 5px; }
+.form-row input, .form-row textarea { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.92rem; font-family: inherit; }
+.form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--primary); }
+.btn { background: var(--primary); border: none; color: white; padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; }
+.btn:hover { background: var(--primary-dark); }
+.btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.media-item { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(15,23,42,0.06); }
+.media-item img, .media-item video { width: 100%; height: 140px; object-fit: cover; background: #e2e8f0; }
+.media-item .info { padding: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.82rem; }
+.media-item .info span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.empty-hint { color: var(--gray); font-size: 0.9rem; padding: 20px; text-align: center; }
+.loading-bar { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); z-index: 10000; transform-origin: left; transform: scaleX(0); transition: transform 0.3s; }
+.loading-bar.active { transform: scaleX(0.7); }
+
+.toast { position: fixed; top: 24px; right: 24px; padding: 14px 22px; border-radius: 8px; color: white; font-weight: 600; font-size: 0.9rem; z-index: 10001; opacity: 0; transform: translateX(30px); transition: all 0.3s; pointer-events: none; max-width: 340px; }
+.toast.show { opacity: 1; transform: translateX(0); }
+.toast.ok { background: var(--success); }
+.toast.err { background: var(--danger); }
+
+@media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } .brand-logo { height: 50px; } }
+@media (max-width: 700px) { .brand-text .parent-name { display: none; } .brand-logo { height: 44px; } }
+@media (max-width: 640px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .hamburger { display: block; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: white; padding: 20px; gap: 16px; align-items: stretch; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .nav.open { display: flex; }
+  .leader-card { flex-direction: column; text-align: center; align-items: center; }
+  .section { padding: 60px 0; }
+  .admin-body { padding: 16px; }
+  .admin-header { padding: 12px 16px; }
+  .admin-header h2 { font-size: 0.92rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="loading-bar" id="loadingBar"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#home" class="brand">
+      <img src="bpcl-logo.png" alt="Bharat Petroleum Logo" class="brand-logo"
+           onerror="this.style.display='none';document.getElementById('fallbackLogo').style.display='inline-block';" />
+      <svg id="fallbackLogo" style="display:none;height:52px;width:52px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="42" r="34" fill="#0072bc"/>
+        <circle cx="50" cy="42" r="24" fill="#fff"/>
+        <circle cx="50" cy="42" r="18" fill="#0072bc"/>
+        <path d="M42 32 Q52 42 42 52 Q58 44 58 42 Q58 40 42 32Z" fill="#ffd200"/>
+        <rect x="2" y="82" width="96" height="16" fill="#ffd200"/>
+        <text x="50" y="94" font-size="10" font-weight="bold" text-anchor="middle" fill="#0072bc" font-family="Arial">BPCL</text>
+      </svg>
+      <div class="brand-text">
+        <span class="plant-name">Haldia LPG Bottling Plant</span>
+        <span class="parent-name">A Unit of Bharat Petroleum</span>
+      </div>
+    </a>
+    <nav class="nav" id="navMenu">
+      <a href="#home" onclick="closeNav()">Home</a>
+      <a href="#about" onclick="closeNav()">About Us</a>
+      <a href="#events" onclick="closeNav()">Events</a>
+      <a href="#leadership" onclick="closeNav()">Leadership</a>
+      <a href="#officers" onclick="closeNav()">Officers</a>
+      <a href="#contact" onclick="closeNav()">Contact</a>
+      <a href="#" class="btn-login" onclick="event.preventDefault(); openAdminFlow()">Admin</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="slideshow" id="slideshow"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Bharat Petroleum • Haldia</div>
+    <h1 id="heroTitle">Haldia LPG Bottling Plant</h1>
+    <p id="heroSubtitle">Safe. Reliable. Efficient LPG distribution for every home.</p>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">Plant Profile</h2>
+    <div class="grid-3">
+      <div class="card"><h3>⚙️ Bottling Capacity</h3><p id="p-capacity">—</p></div>
+      <div class="card"><h3>🛡️ Safety Standards</h3><p id="p-safety">—</p></div>
+      <div class="card"><h3>🏭 Infrastructure</h3><p id="p-infra">—</p></div>
+    </div>
+    <div class="certs" id="p-certs"></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Latest Events & Achievements</h2>
+    <div class="events-wrapper">
+      <div class="events-viewport" id="eventsViewport"></div>
+      <div class="events-nav" id="eventsNav"></div>
+      <div class="events-dots" id="eventsDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="section">
+  <div class="container">
+    <h2 class="section-title">Leadership</h2>
+    <div class="grid-2" id="leadersGrid"></div>
+  </div>
+</section>
+
+<!-- OFFICERS -->
+<section id="officers" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Officers & Staff</h2>
+    <div class="grid-3" id="officersGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>📍 Address</h3>
+        <p>Haldia LPG Bottling Plant,<br/>Haldia Industrial Area,<br/>Purba Medinipur, West Bengal — 721602</p>
+        <h3 style="margin-top:18px">📧 Email</h3>
+        <p>haldia.lpg@bharatpetroleum.in</p>
+        <h3 style="margin-top:18px">📞 Phone</h3>
+        <p>+91 98765 43210</p>
+      </div>
+      <form class="card contact-form" onsubmit="submitContact(event)">
+        <h3>Send a Message</h3>
+        <input placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Message" required></textarea>
+        <button class="btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Haldia LPG Bottling Plant. All rights reserved. | <a href="#" onclick="event.preventDefault(); openAdminFlow()">Admin</a></p>
+  <p class="bpcl-line">A Unit of Bharat Petroleum Corporation Limited — <em>energising lives</em></p>
+</footer>
+
+<!-- ADMIN FLOW MODAL -->
+<div class="overlay" id="adminFlowOverlay">
+  <div class="modal-box" id="adminFlowBox"></div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h2>⚙️ Admin <span>Panel</span> — Haldia LPG</h2>
+    <div class="actions">
+      <div id="connStatus" class="conn-status" title="Connection to Firebase">
+        <span class="conn-dot" id="connDot"></span>
+        <span id="connLabel">Checking…</span>
+      </div>
+      <button class="ghost" id="reconnectBtn" onclick="reconnectFirebase()" title="Force reconnect">🔄 Reconnect</button>
+      <button class="ghost" onclick="closeAdmin()">← Site</button>
+      <button class="danger" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-tabs">
+      <button class="active" onclick="switchTab('slides', this)">🖼️ Hero</button>
+      <button onclick="switchTab('events', this)">📸 Events</button>
+      <button onclick="switchTab('profile', this)">🏭 Profile</button>
+      <button onclick="switchTab('leaders', this)">👔 Leadership</button>
+      <button onclick="switchTab('officers', this)">👥 Officers</button>
+      <button onclick="switchTab('settings', this)">🔑 Settings</button>
+    </div>
+
+    <div class="admin-tab-content active" id="tab-slides">
+      <div class="admin-card">
+        <h3>➕ Add Hero Slide</h3>
+        <div class="form-row"><label>Image (max 2 MB, auto-compressed)</label><input type="file" id="slideFile" accept="image/*" /></div>
+        <div class="form-row"><label>Caption</label><input id="slideCaption" placeholder="e.g., State-of-the-Art Storage" /></div>
+        <button class="btn" onclick="addSlide()">Add Slide</button>
+      </div>
+      <div class="admin-card">
+        <h3>Existing Hero Slides</h3>
+        <div class="admin-grid" id="slidesList"></div>
+      </div>
+    </div>
+
+    <div class="admin-tab-content" id="tab-events">
+      <div class="admin-card">
+        <h3>➕ Add Event</h3>
+        <div class="form-row"><label>Image (max 2 MB)</label><input type="file" id="eventFile" accept="image/*" /></div>
+        <div class="form-row"><label>Title</label><input id="eventTitle" placeholder="e.g., Safety Week 2025" /></div>
+        <div class="form-row"><label>Description</label><textarea id="eventDesc" rows="2"></textarea></div>
+        <div class="form-row"><label>Date</label><input id="eventDate" type="date" /></div>
+        <button class="btn" onclick="addEvent()">Add Event</button>
+      </div>
+      <div class="admin-card">
+        <h3>Existing Events</h3>
+        <div class="admin-grid" id="eventsList"></div>
+      </div>
+    </div>
+
+    <div class="admin-tab-content" id="tab-profile">
+      <div class="admin-card">
+        <h3>Plant Profile</h3>
+        <div class="form-row"><label>Bottling Capacity</label><input id="pf-cap" /></div>
+        <div class="form-row"><label>Safety Standards</label><textarea id="pf-safety" rows="3"></textarea></div>
+        <div class="form-row"><label>Infrastructure</label><textarea id="pf-infra" rows="3"></textarea></div>
+        <div class="form-row"><label>Certifications (comma-separated)</label><input id="pf-certs" /></div>
+        <button class="btn" onclick="saveProfile()">💾 Save Profile</button>
+      </div>
+    </div>
+
+    <div class="admin-tab-content" id="tab-leaders"><div id="leadersEditors"></div></div>
+
+    <div class="admin-tab-content" id="tab-officers">
+      <div class="admin-card">
+        <h3>➕ Add Officer</h3>
+        <div class="form-row"><label>Name</label><input id="of-name" /></div>
+        <div class="form-row"><label>Designation</label><input id="of-desig" /></div>
+        <div class="form-row"><label>Department</label><input id="of-dept" /></div>
+        <div class="form-row"><label>Email</label><input id="of-email" /></div>
+        <div class="form-row"><label>Phone</label><input id="of-phone" /></div>
+        <div class="form-row"><label>Photo (max 2 MB)</label><input type="file" id="of-photo" accept="image/*" /></div>
+        <button class="btn" onclick="addOfficer()">Add Officer</button>
+      </div>
+      <div class="admin-card">
+        <h3>Existing Officers</h3>
+        <div class="admin-grid" id="officersList"></div>
+      </div>
+    </div>
+
+    <div class="admin-tab-content" id="tab-settings">
+      <div class="admin-card" style="max-width:620px">
+        <h3>🔍 Connection Diagnostics</h3>
+        <p style="font-size:0.9rem;color:var(--gray);margin-bottom:14px">Run a full test of Firebase auth, read, write, and delete. Use this if saves aren't working.</p>
+        <button class="btn" onclick="runDiagnostics()">🔍 Run Full Test</button>
+        <div id="diagOutput" style="margin-top:16px;font-family:monospace;font-size:0.8rem;background:#0f172a;color:#22c55e;padding:14px;border-radius:8px;white-space:pre-wrap;display:none;max-height:400px;overflow-y:auto"></div>
+      </div>
+
+      <div class="admin-card" style="max-width:620px">
+        <h3>🔐 Device Firebase Configuration</h3>
+        <p style="font-size:0.9rem;color:var(--gray);margin-bottom:14px">This device is connected to Firebase. Update the config or clear it to disconnect.</p>
+        <div id="currentConfigInfo" style="background:#f1f5f9;padding:12px;border-radius:8px;font-size:0.85rem;margin-bottom:14px;font-family:monospace;word-break:break-all;white-space:pre-wrap"></div>
+        <button class="btn" onclick="openConfigModal()">Update Configuration</button>
+        <button class="btn" style="background:var(--danger);margin-left:8px" onclick="clearDeviceConfig()">Clear Device Config</button>
+      </div>
+
+      <div class="admin-card" style="max-width:620px">
+        <h3>🔗 Device Sync Code</h3>
+        <p style="font-size:0.9rem;color:var(--gray);margin-bottom:14px">Generate a single short code carrying your Firebase configuration. Paste it on another device's admin login to connect instantly.</p>
+        <button class="btn" onclick="generateSyncCode()">🔗 Generate Sync Code</button>
+        <div id="syncCodeOutput" style="margin-top:14px"></div>
+      </div>
+
+      <div class="admin-card" style="max-width:620px">
+        <h3>📦 Backup & Restore</h3>
+        <p style="font-size:0.9rem;color:var(--gray);margin-bottom:16px">Export all website data as a JSON file, or restore from a previous backup.</p>
+        <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:14px">
+          <b style="color:var(--primary);font-size:0.92rem">⬇️ Pull from Cloud (Backup)</b>
+          <p style="font-size:0.85rem;color:var(--gray);margin:6px 0 12px">Download all current website data as a JSON file.</p>
+          <button class="btn" onclick="pullFromCloud()">📥 Download Backup</button>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px">
+          <b style="color:var(--primary);font-size:0.92rem">⬆️ Push to Cloud (Restore)</b>
+          <p style="font-size:0.85rem;color:var(--gray);margin:6px 0 12px">Upload a JSON backup file. <b style="color:var(--danger)">Overwrites existing data.</b></p>
+          <input type="file" id="importFile" accept=".json,application/json" style="padding:8px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.85rem;width:100%;margin-bottom:10px" />
+          <button class="btn" onclick="pushToCloud()">📤 Upload & Restore</button>
+        </div>
+      </div>
+
+      <div class="admin-card" style="max-width:620px">
+        <h3>ℹ️ About This Admin Session</h3>
+        <div style="font-size:0.9rem;color:#475569;line-height:1.9">
+          <div><b>Signed in as:</b> <span id="currentUserEmail">—</span></div>
+          <div><b>Project:</b> <span id="currentProjectId">—</span></div>
+          <div><b>Storage:</b> Firebase Firestore (Google Cloud)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+/* ============================================================================
+   HALDIA LPG PLANT — Firebase-Powered Admin System (FINAL FIXED VERSION)
+   ============================================================================ */
+
+import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getFirestore, collection, doc, getDoc, getDocs, setDoc,
+  deleteDoc, onSnapshot, serverTimestamp,
+  enableNetwork, disableNetwork, onSnapshotsInSync
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const LS_FB_CONFIG = "haldia_lpg_fb_config_v1";
+
+const DEFAULT_DATA = {
+  slides: [
+    { id: "s1", type: "image", url: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80", caption: "Haldia LPG Bottling Plant" },
+    { id: "s2", type: "image", url: "https://images.unsplash.com/photo-1581091870622-1e6c0d2d3b1c?w=1920&q=80", caption: "State-of-the-Art Infrastructure" }
+  ],
+  events: [
+    { id: "e1", type: "image", url: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80", title: "Safety Week 2025", description: "Plant-wide safety awareness program with mock drills.", date: "2025-03-04" },
+    { id: "e2", type: "image", url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80", title: "Green Initiative Drive", description: "Tree plantation drive across the plant premises.", date: "2025-06-05" },
+    { id: "e3", type: "image", url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80", title: "Customer Meet 2025", description: "Annual distributor and customer meet.", date: "2025-08-12" }
+  ],
+  profile: {
+    capacity: "1200 MT per month",
+    safetyStandards: "Compliant with OISD-STD-144, PESO regulations, and ISO 9001:2015. Round-the-clock fire safety systems.",
+    infrastructure: "Modern bottling carousel, 4 × 100 MT mounded storage bullets, automated filling and sealing.",
+    certifications: ["ISO 9001:2015", "PESO Approved", "OISD Compliant"]
+  },
+  leaders: [
+    { role: "TM", name: "Mr. Rajesh Kumar", designation: "Territory Manager", message: "Welcome to Haldia LPG Bottling Plant. We are committed to safe and reliable LPG distribution.", photo: "", email: "tm.haldia@bharatpetroleum.in", phone: "+91 98765 43210" },
+    { role: "PM", name: "Mr. Suresh Sharma", designation: "Plant Manager", message: "Our plant operates with the highest safety standards and modern bottling technology.", photo: "", email: "pm.haldia@bharatpetroleum.in", phone: "+91 98765 43211" }
+  ],
+  officers: [
+    { id: "o1", name: "Mr. Amit Verma", designation: "Safety Officer", department: "HSE", photo: "", email: "safety@bharatpetroleum.in", phone: "+91 98765 43212" },
+    { id: "o2", name: "Ms. Priya Nair", designation: "Operations Head", department: "Operations", photo: "", email: "ops@bharatpetroleum.in", phone: "+91 98765 43213" },
+    { id: "o3", name: "Mr. Karthik Reddy", designation: "Maintenance Engineer", department: "Engineering", photo: "", email: "eng@bharatpetroleum.in", phone: "+91 98765 43214" }
+  ]
+};
+
+let CURRENT_DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+let FB_APP = null, FB_AUTH = null, FB_DB = null;
+let IS_FIREBASE_READY = false;
+let CURRENT_USER = null;
+let UNSUBSCRIBERS = [];
+let PENDING_DELETE = null;
+
+/* ============ UTILITIES ============ */
+function toast(msg, type = "ok") {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast " + type;
+  requestAnimationFrame(() => t.classList.add("show"));
+  setTimeout(() => t.classList.remove("show"), 2800);
+}
+function showLoading(on) { document.getElementById("loadingBar").classList.toggle("active", !!on); }
+function escapeHtml(s = "") {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+function closeNav() { document.getElementById("navMenu").classList.remove("open"); }
+function formatDate(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }); }
+  catch { return iso; }
+}
+function compressImage(file, maxDim = 1200, quality = 0.75) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > height && width > maxDim) { height = Math.round(height * maxDim / width); width = maxDim; }
+        else if (height > maxDim) { width = Math.round(width * maxDim / height); height = maxDim; }
+        const canvas = document.createElement("canvas");
+        canvas.width = width; canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      img.onerror = reject;
+      img.src = reader.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+/* Show a real alert with the actual Firestore error code */
+function showSaveError(e, context) {
+  console.error("❌ " + context + " failed:", e);
+  const code = e?.code || "none";
+  const msg = e?.message || "unknown";
+  alert(
+    "❌ SAVE FAILED — " + context + "\n\n" +
+    "Code: " + code + "\n" +
+    "Message: " + msg + "\n\n" +
+    "Common fixes:\n" +
+    "• permission-denied → Check Firestore Rules\n" +
+    "• unauthenticated → Log out and log back in\n" +
+    "• unavailable → Check internet, then Reconnect\n" +
+    "• invalid-argument → Image too large"
+  );
+  toast("❌ " + code, "err");
+}
+
+/* ============ CONFIG STORAGE ============ */
+function loadDeviceConfig() {
+  try { return JSON.parse(localStorage.getItem(LS_FB_CONFIG) || "null"); }
+  catch { return null; }
+}
+function saveDeviceConfig(cfg) { localStorage.setItem(LS_FB_CONFIG, JSON.stringify(cfg)); }
+function clearDeviceConfig() {
+  if (!confirm("Disconnect this device from Firebase?")) return;
+  localStorage.removeItem(LS_FB_CONFIG);
+  toast("Device disconnected");
+  setTimeout(() => location.reload(), 900);
+}
+
+/* ============ FIREBASE INIT ============ */
+async function initFirebase(cfg) {
+  if (FB_APP) { try { await deleteApp(FB_APP); } catch {} }
+  UNSUBSCRIBERS.forEach((u) => { try { u(); } catch {} });
+  UNSUBSCRIBERS = [];
+
+  FB_APP = initializeApp(cfg);
+  FB_AUTH = getAuth(FB_APP);
+  FB_DB = getFirestore(FB_APP);
+  IS_FIREBASE_READY = true;
+
+  onAuthStateChanged(FB_AUTH, (user) => {
+    CURRENT_USER = user;
+    if (user) {
+      if (document.getElementById("adminPanel").classList.contains("open")) renderAdmin();
+      const el = document.getElementById("currentUserEmail");
+      if (el) el.textContent = user.email;
+    }
+  });
+
+  subscribeToData();
+}
+
+function subscribeToData() {
+  if (!IS_FIREBASE_READY || !FB_DB) return;
+
+  UNSUBSCRIBERS.push(onSnapshot(collection(FB_DB, "slides"), (snap) => {
+    const arr = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort((a, b) => (a.order || 0) - (b.order || 0));
+    CURRENT_DATA.slides = arr.length ? arr : DEFAULT_DATA.slides;
+    renderSlideshow();
+    if (document.getElementById("adminPanel").classList.contains("open")) renderSlidesAdmin();
+  }, (err) => console.warn("slides snapshot:", err.message)));
+
+  UNSUBSCRIBERS.push(onSnapshot(collection(FB_DB, "events"), (snap) => {
+    const arr = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    CURRENT_DATA.events = arr.length ? arr : DEFAULT_DATA.events;
+    renderEvents();
+    if (document.getElementById("adminPanel").classList.contains("open")) renderEventsAdmin();
+  }, (err) => console.warn("events snapshot:", err.message)));
+
+  UNSUBSCRIBERS.push(onSnapshot(collection(FB_DB, "officers"), (snap) => {
+    const arr = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    CURRENT_DATA.officers = arr.length ? arr : DEFAULT_DATA.officers;
+    renderOfficers();
+    if (document.getElementById("adminPanel").classList.contains("open")) renderOfficersAdmin();
+  }, (err) => console.warn("officers snapshot:", err.message)));
+
+  UNSUBSCRIBERS.push(onSnapshot(doc(FB_DB, "config", "site"), (snap) => {
+    if (snap.exists()) {
+      const d = snap.data();
+      CURRENT_DATA.profile = d.profile || DEFAULT_DATA.profile;
+      CURRENT_DATA.leaders = d.leaders || DEFAULT_DATA.leaders;
+    }
+    renderProfile();
+    renderLeaders();
+    if (document.getElementById("adminPanel").classList.contains("open")) {
+      renderProfileAdmin();
+      renderLeadersAdmin();
+    }
+  }, (err) => console.warn("config snapshot:", err.message)));
+}
+
+/* ============ PUBLIC RENDER ============ */
+let slideIndex = 0, slideTimer = null;
+function renderSlideshow() {
+  const box = document.getElementById("slideshow");
+  const dots = document.getElementById("heroDots");
+  box.innerHTML = ""; dots.innerHTML = "";
+  const slides = CURRENT_DATA.slides || [];
+  if (!slides.length) return;
+
+  slides.forEach((s, i) => {
+    const div = document.createElement("div");
+    div.className = "slide" + (i === 0 ? " active" : "");
+    div.innerHTML = s.type === "video"
+      ? `<video src="${s.url}" autoplay muted loop playsinline></video>`
+      : `<img src="${s.url}" alt="${escapeHtml(s.caption || "")}" />`;
+    box.appendChild(div);
+    const dot = document.createElement("button");
+    if (i === 0) dot.classList.add("active");
+    dot.onclick = () => goToSlide(i);
+    dots.appendChild(dot);
+  });
+
+  if (slides[0]?.caption) document.getElementById("heroTitle").textContent = slides[0].caption;
+
+  clearInterval(slideTimer);
+  if (slides.length > 1) {
+    slideTimer = setInterval(() => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      goToSlide(slideIndex);
+    }, 5000);
+  }
+}
+function goToSlide(i) {
+  slideIndex = i;
+  document.querySelectorAll(".slide").forEach((el, idx) => el.classList.toggle("active", idx === i));
+  document.querySelectorAll("#heroDots button").forEach((el, idx) => el.classList.toggle("active", idx === i));
+  const s = CURRENT_DATA.slides[i];
+  if (s?.caption) document.getElementById("heroTitle").textContent = s.caption;
+}
+
+let eventIndex = 0, eventTimer = null;
+function renderEvents() {
+  const viewport = document.getElementById("eventsViewport");
+  const nav = document.getElementById("eventsNav");
+  const dots = document.getElementById("eventsDots");
+  viewport.innerHTML = ""; nav.innerHTML = ""; dots.innerHTML = "";
+
+  const events = CURRENT_DATA.events || [];
+  if (!events.length) {
+    viewport.innerHTML = `<div class="events-empty">No events yet. Check back soon!</div>`;
+    return;
+  }
+
+  events.forEach((ev, i) => {
+    const div = document.createElement("div");
+    div.className = "event-slide" + (i === 0 ? " active" : "");
+    const media = ev.type === "video"
+      ? `<video src="${ev.url}" autoplay muted loop playsinline></video>`
+      : `<img src="${ev.url}" alt="${escapeHtml(ev.title || "")}" />`;
+    const dateStr = ev.date ? formatDate(ev.date) : "";
+    div.innerHTML = `
+      ${dateStr ? `<div class="event-badge">${escapeHtml(dateStr)}</div>` : ""}
+      ${media}
+      <div class="event-caption">
+        <h4>${escapeHtml(ev.title || "Event")}</h4>
+        ${ev.description ? `<p>${escapeHtml(ev.description)}</p>` : ""}
+      </div>`;
+    viewport.appendChild(div);
+
+    const dot = document.createElement("button");
+    if (i === 0) dot.classList.add("active");
+    dot.onclick = () => goToEvent(i);
+    dots.appendChild(dot);
+  });
+
+  if (events.length > 1) {
+    const prev = document.createElement("button"); prev.innerHTML = "‹";
+    prev.onclick = () => goToEvent((eventIndex - 1 + events.length) % events.length);
+    const next = document.createElement("button"); next.innerHTML = "›";
+    next.onclick = () => goToEvent((eventIndex + 1) % events.length);
+    nav.appendChild(prev); nav.appendChild(next);
+  }
+
+  clearInterval(eventTimer);
+  if (events.length > 1) {
+    eventTimer = setInterval(() => goToEvent((eventIndex + 1) % events.length), 4500);
+  }
+}
+function goToEvent(i) {
+  eventIndex = i;
+  document.querySelectorAll(".event-slide").forEach((el, idx) => el.classList.toggle("active", idx === i));
+  document.querySelectorAll("#eventsDots button").forEach((el, idx) => el.classList.toggle("active", idx === i));
+  clearInterval(eventTimer);
+  if ((CURRENT_DATA.events || []).length > 1) {
+    eventTimer = setInterval(() => goToEvent((eventIndex + 1) % CURRENT_DATA.events.length), 4500);
+  }
+}
+
+function renderProfile() {
+  const p = CURRENT_DATA.profile || {};
+  document.getElementById("p-capacity").textContent = p.capacity || "—";
+  document.getElementById("p-safety").textContent = p.safetyStandards || "—";
+  document.getElementById("p-infra").textContent = p.infrastructure || "—";
+  document.getElementById("p-certs").innerHTML = (p.certifications || []).map((c) => `<span>✓ ${escapeHtml(c)}</span>`).join("");
+}
+
+function renderLeaders() {
+  document.getElementById("leadersGrid").innerHTML = (CURRENT_DATA.leaders || []).map((l) => `
+    <div class="card leader-card">
+      ${l.photo ? `<img src="${l.photo}" class="leader-photo" alt="${escapeHtml(l.name)}" />` : `<div class="leader-photo">👤</div>`}
+      <div class="leader-info">
+        <div class="leader-role">${l.role === "TM" ? "Territory Manager" : "Plant Manager"}</div>
+        <h3>${escapeHtml(l.name || "—")}</h3>
+        <div class="leader-desig">${escapeHtml(l.designation || "")}</div>
+        ${l.message ? `<p class="leader-message">"${escapeHtml(l.message)}"</p>` : ""}
+        <div class="leader-contact">
+          ${l.email ? `📧 ${escapeHtml(l.email)}<br/>` : ""}
+          ${l.phone ? `📞 ${escapeHtml(l.phone)}` : ""}
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+function renderOfficers() {
+  const officers = CURRENT_DATA.officers || [];
+  const box = document.getElementById("officersGrid");
+  if (!officers.length) {
+    box.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#64748b">No officers added yet.</p>`;
+    return;
+  }
+  box.innerHTML = officers.map((o) => `
+    <div class="card officer-card">
+      ${o.photo ? `<img src="${o.photo}" class="officer-photo" alt="${escapeHtml(o.name)}" />` : `<div class="officer-photo">👤</div>`}
+      <h3>${escapeHtml(o.name)}</h3>
+      <div class="officer-desig">${escapeHtml(o.designation || "")}</div>
+      <div class="officer-contact">
+        ${o.department ? escapeHtml(o.department) + "<br/>" : ""}
+        ${o.email ? `📧 ${escapeHtml(o.email)}<br/>` : ""}
+        ${o.phone ? `📞 ${escapeHtml(o.phone)}` : ""}
+      </div>
+    </div>`).join("");
+}
+
+function renderAll() {
+  renderSlideshow(); renderEvents(); renderProfile(); renderLeaders(); renderOfficers();
+}
+
+/* ============ ADMIN FLOW ============ */
+function openAdminFlow() {
+  document.getElementById("adminFlowOverlay").classList.add("open");
+  const cfg = loadDeviceConfig();
+  if (!cfg) renderConfigPrompt();
+  else setupFirebaseAndShowLogin(cfg);
+}
+function closeAdminFlow() { document.getElementById("adminFlowOverlay").classList.remove("open"); }
+
+function renderConfigPrompt() {
+  document.getElementById("adminFlowBox").innerHTML = `
+    <h2>🔧 Device Setup Required</h2>
+    <p class="hint">Enter your Firebase configuration to enable admin access on this device.<br/><b>Get it from:</b> Firebase Console → Project Settings → Your Apps → SDK Setup → Config</p>
+    <div class="modal-err" id="cfgErr"></div>
+    <div class="form-row"><label>API Key</label><input id="cfg-apiKey" placeholder="AIzaSy..." /></div>
+    <div class="form-row"><label>Auth Domain</label><input id="cfg-authDomain" placeholder="your-project.firebaseapp.com" /></div>
+    <div class="form-row"><label>Project ID</label><input id="cfg-projectId" placeholder="your-project-id" /></div>
+    <div class="form-row"><label>Storage Bucket</label><input id="cfg-storageBucket" placeholder="your-project.appspot.com" /></div>
+    <div class="form-row"><label>Messaging Sender ID</label><input id="cfg-messagingSenderId" placeholder="123456789012" /></div>
+    <div class="form-row"><label>App ID</label><input id="cfg-appId" placeholder="1:123...:web:abc..." /></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAdminFlow()">Cancel</button>
+      <button class="btn-save" onclick="submitConfig()">Connect & Continue</button>
+    </div>
+    <div style="border-top:1px solid #e2e8f0;margin:22px 0 16px;padding-top:18px">
+      <p style="text-align:center;font-size:0.85rem;color:#94a3b8;margin-bottom:12px">— OR —</p>
+      <p style="text-align:center;font-size:0.9rem;color:#475569;margin-bottom:12px">Already set up on another device? Paste your <b>Sync Code</b>:</p>
+      <textarea id="syncCodeInput" rows="3" placeholder="HLPG:eyJhcGlLZXkiOiJBSXph..." style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-family:monospace;font-size:0.78rem"></textarea>
+      <button class="btn-save" style="width:100%;margin-top:10px;padding:12px;border-radius:8px;border:none;font-weight:600;background:var(--primary);color:white" onclick="applySyncCode()">🔗 Apply Sync Code</button>
+    </div>
+    <p style="text-align:center;margin-top:16px;font-size:0.82rem;color:#94a3b8">🔒 Stored only on this device.</p>
+  `;
+}
+
+async function submitConfig() {
+  const cfg = {
+    apiKey: document.getElementById("cfg-apiKey").value.trim(),
+    authDomain: document.getElementById("cfg-authDomain").value.trim(),
+    projectId: document.getElementById("cfg-projectId").value.trim(),
+    storageBucket: document.getElementById("cfg-storageBucket").value.trim(),
+    messagingSenderId: document.getElementById("cfg-messagingSenderId").value.trim(),
+    appId: document.getElementById("cfg-appId").value.trim()
+  };
+  const errEl = document.getElementById("cfgErr");
+  errEl.textContent = "";
+  if (!cfg.apiKey || !cfg.projectId || !cfg.authDomain || !cfg.appId) {
+    errEl.textContent = "Fill in API Key, Auth Domain, Project ID, and App ID.";
+    return;
+  }
+  try {
+    showLoading(true);
+    await initFirebase(cfg);
+    saveDeviceConfig(cfg);
+    toast("✅ Firebase connected");
+    setupFirebaseAndShowLogin(cfg);
+  } catch (e) {
+    errEl.textContent = "Failed: " + (e.message || "Unknown");
+  } finally { showLoading(false); }
+}
+
+async function setupFirebaseAndShowLogin(cfg) {
+  try {
+    if (!IS_FIREBASE_READY) await initFirebase(cfg);
+    renderLoginPrompt();
+  } catch (e) {
+    renderConfigPrompt();
+    const errEl = document.getElementById("cfgErr");
+    if (errEl) errEl.textContent = "Connection failed: " + (e.message || "");
+  }
+}
+
+function renderLoginPrompt() {
+  document.getElementById("adminFlowBox").innerHTML = `
+    <h2>🔐 Admin Login</h2>
+    <p class="hint">Project: <b>${escapeHtml(loadDeviceConfig()?.projectId || "")}</b></p>
+    <div class="modal-err" id="loginErr"></div>
+    <div class="form-row"><label>Email</label><input id="loginEmail" type="email" placeholder="admin@example.com" autocomplete="username" /></div>
+    <div class="form-row"><label>Password</label><input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" onkeypress="if(event.key==='Enter') doLogin()" /></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAdminFlow()">Cancel</button>
+      <button class="btn-save" onclick="doLogin()">Login</button>
+    </div>
+    <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:#94a3b8">Use email + password from Firebase Authentication → Users.</p>
+  `;
+}
+
+async function doLogin() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const pass = document.getElementById("loginPass").value;
+  const errEl = document.getElementById("loginErr");
+  errEl.textContent = "";
+  if (!email || !pass) { errEl.textContent = "Fill both fields."; return; }
+  try {
+    showLoading(true);
+    await signInWithEmailAndPassword(FB_AUTH, email, pass);
+    closeAdminFlow();
+    openAdmin();
+    toast("Welcome, admin!");
+  } catch (e) {
+    errEl.textContent = "Login failed: " + (e.code || e.message);
+  } finally { showLoading(false); }
+}
+
+async function doLogout() {
+  try { await signOut(FB_AUTH); } catch {}
+  closeAdmin();
+  toast("Logged out");
+}
+
+function openAdmin() {
+  if (!CURRENT_USER) { openAdminFlow(); return; }
+  document.getElementById("adminPanel").classList.add("open");
+  renderAdmin();
+  startConnectionMonitor();
+  healthCheck();
+}
+function closeAdmin() { document.getElementById("adminPanel").classList.remove("open"); }
+
+/* ============ ADMIN RENDER ============ */
+function switchTab(name, btn) {
+  document.querySelectorAll(".admin-tab-content").forEach((el) => el.classList.remove("active"));
+  document.querySelectorAll(".admin-tabs button").forEach((el) => el.classList.remove("active"));
+  document.getElementById("tab-" + name).classList.add("active");
+  btn.classList.add("active");
+}
+
+function renderAdmin() {
+  renderSlidesAdmin(); renderEventsAdmin(); renderProfileAdmin();
+  renderLeadersAdmin(); renderOfficersAdmin(); renderSettingsInfo();
+}
+
+function renderSlidesAdmin() {
+  const box = document.getElementById("slidesList");
+  const slides = CURRENT_DATA.slides || [];
+  if (!slides.length) { box.innerHTML = `<p class="empty-hint">No slides yet.</p>`; return; }
+  box.innerHTML = slides.map((s) => `
+    <div class="media-item">
+      ${s.type === "video" ? `<video src="${s.url}" muted></video>` : `<img src="${s.url}" />`}
+      <div class="info">
+        <span title="${escapeHtml(s.caption)}">${escapeHtml(s.caption || "(no caption)")}</span>
+        <button class="btn btn-sm" style="background:var(--danger)" onclick="confirmDelete('slides','${s.id}','${escapeHtml(s.caption || "slide")}')">🗑</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderEventsAdmin() {
+  const box = document.getElementById("eventsList");
+  const events = CURRENT_DATA.events || [];
+  if (!events.length) { box.innerHTML = `<p class="empty-hint">No events yet.</p>`; return; }
+  box.innerHTML = events.map((ev) => `
+    <div class="media-item">
+      ${ev.type === "video" ? `<video src="${ev.url}" muted></video>` : `<img src="${ev.url}" />`}
+      <div class="info" style="flex-direction:column;align-items:flex-start">
+        <b>${escapeHtml(ev.title || "")}</b>
+        ${ev.date ? `<small style="color:var(--primary)">📅 ${escapeHtml(formatDate(ev.date))}</small>` : ""}
+        <button class="btn btn-sm" style="background:var(--danger);margin-top:6px" onclick="confirmDelete('events','${ev.id}','${escapeHtml(ev.title || "event")}')">🗑 Delete</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderProfileAdmin() {
+  const p = CURRENT_DATA.profile || {};
+  document.getElementById("pf-cap").value = p.capacity || "";
+  document.getElementById("pf-safety").value = p.safetyStandards || "";
+  document.getElementById("pf-infra").value = p.infrastructure || "";
+  document.getElementById("pf-certs").value = (p.certifications || []).join(", ");
+}
+
+function renderLeadersAdmin() {
+  const roles = ["TM", "PM"];
+  document.getElementById("leadersEditors").innerHTML = roles.map((role) => {
+    const l = (CURRENT_DATA.leaders || []).find((x) => x.role === role) || { role };
+    const label = role === "TM" ? "Territory Manager (TM)" : "Plant Manager (PM)";
+    return `
+      <div class="admin-card">
+        <h3>${label}</h3>
+        <div class="form-row"><label>Name</label><input id="ld-${role}-name" value="${escapeHtml(l.name || "")}" /></div>
+        <div class="form-row"><label>Designation</label><input id="ld-${role}-desig" value="${escapeHtml(l.designation || "")}" /></div>
+        <div class="form-row"><label>Message</label><textarea id="ld-${role}-msg" rows="3">${escapeHtml(l.message || "")}</textarea></div>
+        <div class="form-row"><label>Email</label><input id="ld-${role}-email" value="${escapeHtml(l.email || "")}" /></div>
+        <div class="form-row"><label>Phone</label><input id="ld-${role}-phone" value="${escapeHtml(l.phone || "")}" /></div>
+        <div class="form-row"><label>Photo</label><input type="file" accept="image/*" onchange="uploadLeaderPhoto(event,'${role}')" /></div>
+        <input type="hidden" id="ld-${role}-photo" value="${escapeHtml(l.photo || "")}" />
+        ${l.photo ? `<img src="${l.photo}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px" />` : ""}
+        <button class="btn" onclick="saveLeader('${role}')">💾 Save</button>
+      </div>`;
+  }).join("");
+}
+
+function renderOfficersAdmin() {
+  const box = document.getElementById("officersList");
+  const officers = CURRENT_DATA.officers || [];
+  if (!officers.length) { box.innerHTML = `<p class="empty-hint">No officers yet.</p>`; return; }
+  box.innerHTML = officers.map((o) => `
+    <div class="media-item">
+      ${o.photo ? `<img src="${o.photo}" />` : `<div style="height:140px;display:flex;align-items:center;justify-content:center;background:#e2e8f0;font-size:2.5rem;color:#94a3b8">👤</div>`}
+      <div class="info" style="flex-direction:column;align-items:flex-start">
+        <b>${escapeHtml(o.name)}</b>
+        <small style="color:var(--primary)">${escapeHtml(o.designation || "")}</small>
+        <button class="btn btn-sm" style="background:var(--danger);margin-top:6px" onclick="confirmDelete('officers','${o.id}','${escapeHtml(o.name)}')">🗑 Delete</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderSettingsInfo() {
+  const cfg = loadDeviceConfig();
+  document.getElementById("currentConfigInfo").textContent =
+    cfg ? `projectId: ${cfg.projectId}\nauthDomain: ${cfg.authDomain}\napiKey: ${cfg.apiKey.slice(0, 12)}...` : "Not configured";
+  document.getElementById("currentUserEmail").textContent = CURRENT_USER?.email || "—";
+  document.getElementById("currentProjectId").textContent = cfg?.projectId || "—";
+}
+
+function openConfigModal() {
+  closeAdminFlow();
+  document.getElementById("adminFlowOverlay").classList.add("open");
+  const cfg = loadDeviceConfig();
+  renderConfigPrompt();
+  if (cfg) setTimeout(() => {
+    document.getElementById("cfg-apiKey").value = cfg.apiKey || "";
+    document.getElementById("cfg-authDomain").value = cfg.authDomain || "";
+    document.getElementById("cfg-projectId").value = cfg.projectId || "";
+    document.getElementById("cfg-storageBucket").value = cfg.storageBucket || "";
+    document.getElementById("cfg-messagingSenderId").value = cfg.messagingSenderId || "";
+    document.getElementById("cfg-appId").value = cfg.appId || "";
+  }, 10);
+}
+
+/* ============ ADMIN ACTIONS (FIXED) ============ */
+
+async function addSlide() {
+  if (!CURRENT_USER) { toast("❌ Not logged in — log out and back in", "err"); return; }
+  const file = document.getElementById("slideFile").files[0];
+  const caption = document.getElementById("slideCaption").value.trim();
+  if (!file) { toast("Choose an image", "err"); return; }
+  if (!file.type.startsWith("image")) { toast("Only images allowed", "err"); return; }
+
+  try {
+    showLoading(true);
+    toast("💾 Processing image…");
+    const url = await compressImage(file);
+    const sizeKB = Math.round(url.length / 1024);
+    console.log("Compressed image size:", sizeKB, "KB");
+    if (sizeKB > 950) throw new Error("Image too large after compression: " + sizeKB + " KB");
+
+    toast("💾 Saving to cloud…");
+    await setDoc(doc(FB_DB, "slides", uid()), {
+      type: "image", url, caption, order: Date.now(), createdAt: serverTimestamp()
+    });
+    document.getElementById("slideFile").value = "";
+    document.getElementById("slideCaption").value = "";
+    toast("✅ Slide added");
+  } catch (e) {
+    showSaveError(e, "Add Slide");
+  } finally { showLoading(false); }
+}
+
+async function addEvent() {
+  if (!CURRENT_USER) { toast("❌ Not logged in", "err"); return; }
+  const file = document.getElementById("eventFile").files[0];
+  const title = document.getElementById("eventTitle").value.trim();
+  const description = document.getElementById("eventDesc").value.trim();
+  const date = document.getElementById("eventDate").value;
+  if (!file) { toast("Choose an image", "err"); return; }
+  if (!title) { toast("Enter a title", "err"); return; }
+
+  try {
+    showLoading(true);
+    toast("💾 Processing image…");
+    const url = await compressImage(file);
+    const sizeKB = Math.round(url.length / 1024);
+    console.log("Compressed image size:", sizeKB, "KB");
+    if (sizeKB > 950) throw new Error("Image too large after compression: " + sizeKB + " KB");
+
+    toast("💾 Saving to cloud…");
+    await setDoc(doc(FB_DB, "events", uid()), {
+      type: "image", url, title, description, date, createdAt: serverTimestamp()
+    });
+    document.getElementById("eventFile").value = "";
+    document.getElementById("eventTitle").value = "";
+    document.getElementById("eventDesc").value = "";
+    document.getElementById("eventDate").value = "";
+    toast("✅ Event added");
+  } catch (e) {
+    showSaveError(e, "Add Event");
+  } finally { showLoading(false); }
+}
+
+function confirmDelete(coll, id, label) {
+  if (!CURRENT_USER) { toast("❌ Not logged in", "err"); return; }
+  PENDING_DELETE = { coll, id };
+  document.getElementById("adminFlowOverlay").classList.add("open");
+  document.getElementById("adminFlowBox").innerHTML = `
+    <h2>🗑 Confirm Delete</h2>
+    <p class="hint">Delete <b>${escapeHtml(label)}</b>? Cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="cancelDelete()">Cancel</button>
+      <button class="btn-save" style="background:var(--danger)" onclick="doDelete()">Delete</button>
+    </div>`;
+}
+function cancelDelete() { PENDING_DELETE = null; closeAdminFlow(); }
+
+async function doDelete() {
+  if (!PENDING_DELETE) return;
+  if (!CURRENT_USER) { toast("❌ Not logged in", "err"); return; }
+  try {
+    showLoading(true);
+    await deleteDoc(doc(FB_DB, PENDING_DELETE.coll, PENDING_DELETE.id));
+    toast("✅ Deleted");
+  } catch (e) {
+    showSaveError(e, "Delete");
+  } finally { PENDING_DELETE = null; closeAdminFlow(); showLoading(false); }
+}
+
+async function saveProfile() {
+  if (!CURRENT_USER) {
+    toast("❌ Not logged in — log out and back in", "err");
+    return;
+  }
+
+  const profile = {
+    capacity: document.getElementById("pf-cap").value,
+    safetyStandards: document.getElementById("pf-safety").value,
+    infrastructure: document.getElementById("pf-infra").value,
+    certifications: document.getElementById("pf-certs").value.split(",").map((s) => s.trim()).filter(Boolean)
+  };
+
+  try {
+    showLoading(true);
+    toast("💾 Saving profile…");
+    // Direct write with merge — no pre-read
+    await setDoc(doc(FB_DB, "config", "site"), { profile }, { merge: true });
+    CURRENT_DATA.profile = profile;
+    renderProfile();
+    toast("✅ Profile saved");
+  } catch (e) {
+    showSaveError(e, "Save Profile");
+  } finally { showLoading(false); }
+}
+
+async function uploadLeaderPhoto(e, role) {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    showLoading(true);
+    const url = await compressImage(file, 500, 0.85);
+    document.getElementById(`ld-${role}-photo`).value = url;
+    toast("📷 Photo ready — click Save");
+  } catch (e) {
+    showSaveError(e, "Process Photo");
+  } finally { showLoading(false); }
+}
+
+async function saveLeader(role) {
+  if (!CURRENT_USER) { toast("❌ Not logged in", "err"); return; }
+  const body = {
+    role,
+    name: document.getElementById(`ld-${role}-name`).value,
+    designation: document.getElementById(`ld-${role}-desig`).value,
+    message: document.getElementById(`ld-${role}-msg`).value,
+    email: document.getElementById(`ld-${role}-email`).value,
+    phone: document.getElementById(`ld-${role}-phone`).value,
+    photo: document.getElementById(`ld-${role}-photo`).value
+  };
+  try {
+    showLoading(true);
+    toast("💾 Saving " + role + "…");
+    // Build full leaders array (merge:true won't merge arrays, so we compute)
+    const existingLeaders = CURRENT_DATA.leaders?.length ? [...CURRENT_DATA.leaders] : [...DEFAULT_DATA.leaders];
+    const idx = existingLeaders.findIndex((l) => l.role === role);
+    if (idx >= 0) existingLeaders[idx] = body;
+    else existingLeaders.push(body);
+
+    await setDoc(doc(FB_DB, "config", "site"), { leaders: existingLeaders }, { merge: true });
+    CURRENT_DATA.leaders = existingLeaders;
+    renderLeaders();
+    toast(`✅ ${role} saved`);
+  } catch (e) {
+    showSaveError(e, "Save " + role);
+  } finally { showLoading(false); }
+}
+
+async function addOfficer() {
+  if (!CURRENT_USER) { toast("❌ Not logged in", "err"); return; }
+  const name = document.getElementById("of-name").value.trim();
+  if (!name) { toast("Name required", "err"); return; }
+
+  let photo = "";
+  const file = document.getElementById("of-photo").files[0];
+  try {
+    showLoading(true);
+    if (file) {
+      toast("💾 Processing photo…");
+      photo = await compressImage(file, 500, 0.85);
+    }
+    toast("💾 Saving officer…");
+    await setDoc(doc(FB_DB, "officers", uid()), {
+      name,
+      designation: document.getElementById("of-desig").value,
+      department: document.getElementById("of-dept").value,
+      email: document.getElementById("of-email").value,
+      phone: document.getElementById("of-phone").value,
+      photo, createdAt: serverTimestamp()
+    });
+    ["of-name", "of-desig", "of-dept", "of-email", "of-phone", "of-photo"].forEach((id) => {
+      const el = document.getElementById(id); if (el) el.value = "";
+    });
+    toast("✅ Officer added");
+  } catch (e) {
+    showSaveError(e, "Add Officer");
+  } finally { showLoading(false); }
+}
+
+/* ============ SYNC CODE ============ */
+function encodeConfig(cfg) {
+  try { return "HLPG:" + btoa(unescape(encodeURIComponent(JSON.stringify(cfg)))); }
+  catch { return ""; }
+}
+function decodeSyncCode(str) {
+  try {
+    const trimmed = (str || "").trim();
+    const b64 = trimmed.startsWith("HLPG:") ? trimmed.slice(5) : trimmed;
+    return JSON.parse(decodeURIComponent(escape(atob(b64))));
+  } catch { return null; }
+}
+function generateSyncCode() {
+  const cfg = loadDeviceConfig();
+  if (!cfg) { toast("Not configured", "err"); return; }
+  const code = encodeConfig(cfg);
+  document.getElementById("syncCodeOutput").innerHTML = `
+    <textarea readonly rows="4" style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-family:monospace;font-size:0.72rem;background:#f8fafc;word-break:break-all">${code}</textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-sm" onclick="copySyncCode()">📋 Copy</button>
+      <button class="btn btn-sm" onclick="downloadSyncCode()">⬇️ Download .txt</button>
+    </div>
+    <p style="font-size:0.82rem;color:var(--gray);margin-top:10px">⚠️ Keep this private. Login still required.</p>
+  `;
+  toast("Sync code generated ✓");
+}
+function copySyncCode() {
+  const el = document.querySelector("#syncCodeOutput textarea");
+  if (!el) return;
+  el.select();
+  try { document.execCommand("copy"); toast("Copied ✓"); }
+  catch { toast("Copy failed", "err"); }
+}
+function downloadSyncCode() {
+  const cfg = loadDeviceConfig();
+  if (!cfg) return;
+  const blob = new Blob([encodeConfig(cfg)], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "haldia-lpg-sync-code.txt";
+  a.click();
+  toast("Downloaded ✓");
+}
+async function applySyncCode() {
+  const input = document.getElementById("syncCodeInput");
+  const errEl = document.getElementById("cfgErr");
+  if (errEl) errEl.textContent = "";
+  const cfg = decodeSyncCode(input?.value);
+  if (!cfg || !cfg.apiKey || !cfg.projectId || !cfg.authDomain) {
+    if (errEl) errEl.textContent = "Invalid sync code.";
+    return;
+  }
+  try {
+    showLoading(true);
+    await initFirebase(cfg);
+    saveDeviceConfig(cfg);
+    toast("✅ Config restored");
+    setupFirebaseAndShowLogin(cfg);
+  } catch (e) {
+    if (errEl) errEl.textContent = "Failed: " + (e.message || "unknown");
+  } finally { showLoading(false); }
+}
+
+/* ============ BACKUP / RESTORE ============ */
+async function pullFromCloud() {
+  if (!CURRENT_USER) { toast("Log in first", "err"); return; }
+  try {
+    showLoading(true);
+    toast("📥 Downloading…");
+    const out = { exportedAt: new Date().toISOString(), projectId: loadDeviceConfig()?.projectId || "", slides: [], events: [], officers: [], config: {} };
+    for (const c of ["slides", "events", "officers"]) {
+      const snap = await getDocs(collection(FB_DB, c));
+      out[c] = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    }
+    const configSnap = await getDoc(doc(FB_DB, "config", "site"));
+    out.config = configSnap.exists() ? configSnap.data() : {};
+
+    const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `haldia-lpg-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    toast("✅ Backup downloaded");
+  } catch (e) {
+    showSaveError(e, "Backup");
+  } finally { showLoading(false); }
+}
+
+async function pushToCloud() {
+  if (!CURRENT_USER) { toast("Log in first", "err"); return; }
+  const fileInput = document.getElementById("importFile");
+  const file = fileInput?.files?.[0];
+  if (!file) { toast("Choose a JSON file", "err"); return; }
+  if (!confirm("OVERWRITE existing Firestore data with uploaded file?")) return;
+  try {
+    showLoading(true);
+    const text = await file.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error("Invalid JSON"); }
+    let written = 0;
+    for (const c of ["slides", "events", "officers"]) {
+      if (!Array.isArray(data[c])) continue;
+      for (const item of data[c]) {
+        const { id, ...rest } = item;
+        if (!id) continue;
+        await setDoc(doc(FB_DB, c, id), rest);
+        written++;
+      }
+    }
+    if (data.config && typeof data.config === "object") {
+      await setDoc(doc(FB_DB, "config", "site"), data.config, { merge: true });
+    }
+    CURRENT_DATA.profile = data.config?.profile || CURRENT_DATA.profile;
+    CURRENT_DATA.leaders = data.config?.leaders || CURRENT_DATA.leaders;
+    renderProfile(); renderLeaders();
+    fileInput.value = "";
+    toast(`✅ Restored ${written} items`);
+  } catch (e) {
+    showSaveError(e, "Restore");
+  } finally { showLoading(false); }
+}
+
+/* ============ CONNECTION MONITOR ============ */
+let connState = "connecting";
+let connCheckTimer = null;
+let syncListenerReady = false;
+
+function updateConnBadge(state, customLabel) {
+  connState = state;
+  const badge = document.getElementById("connStatus");
+  const label = document.getElementById("connLabel");
+  if (!badge || !label) return;
+  badge.classList.remove("online", "offline", "connecting");
+  badge.classList.add(state);
+  if (customLabel) label.textContent = customLabel;
+  else if (state === "online") label.textContent = "Online";
+  else if (state === "offline") label.textContent = "Offline";
+  else label.textContent = "Connecting…";
+  const btn = document.getElementById("reconnectBtn");
+  if (btn) btn.disabled = (state === "connecting");
+}
+
+function startConnectionMonitor() {
+  window.addEventListener("online", () => {
+    updateConnBadge("connecting", "Reconnecting…");
+    reconnectFirebase(true);
+  });
+  window.addEventListener("offline", () => updateConnBadge("offline", "No internet"));
+
+  if (!navigator.onLine) { updateConnBadge("offline", "No internet"); return; }
+
+  if (IS_FIREBASE_READY && FB_DB && !syncListenerReady) {
+    try {
+      onSnapshotsInSync(FB_DB, () => updateConnBadge("online"));
+      syncListenerReady = true;
+    } catch (e) { console.warn("sync listener:", e.message); }
+  }
+
+  clearInterval(connCheckTimer);
+  connCheckTimer = setInterval(healthCheck, 20000);
+  healthCheck();
+}
+
+async function healthCheck() {
+  if (!IS_FIREBASE_READY || !FB_DB) { updateConnBadge("connecting", "Not connected"); return; }
+  if (!navigator.onLine) { updateConnBadge("offline", "No internet"); return; }
+  try {
+    await getDoc(doc(FB_DB, "config", "site"));
+    updateConnBadge("online");
+  } catch (e) {
+    if (e?.code === "unavailable" || /offline/i.test(e?.message || "")) {
+      updateConnBadge("offline", "Server unreachable");
+    } else if (e?.code === "permission-denied") {
+      updateConnBadge("online");
+    } else {
+      updateConnBadge("offline");
+    }
+  }
+}
+
+async function reconnectFirebase(silent) {
+  const btn = document.getElementById("reconnectBtn");
+  if (btn) btn.classList.add("spinning");
+  updateConnBadge("connecting", "Reconnecting…");
+  try {
+    if (!IS_FIREBASE_READY || !FB_DB) {
+      const cfg = loadDeviceConfig();
+      if (!cfg) { updateConnBadge("offline", "No config"); if (btn) btn.classList.remove("spinning"); return; }
+      await initFirebase(cfg);
+    } else {
+      try { await disableNetwork(FB_DB); } catch {}
+      await new Promise((r) => setTimeout(r, 400));
+      await enableNetwork(FB_DB);
+    }
+    await new Promise((r) => setTimeout(r, 800));
+
+    // Actual test: try to fetch a doc
+    let ok = false;
+    try {
+      await getDoc(doc(FB_DB, "config", "site"));
+      ok = true;
+      updateConnBadge("online");
+    } catch (e) {
+      if (e?.code === "permission-denied") { ok = true; updateConnBadge("online"); }
+      else { updateConnBadge("offline", "Server unreachable"); }
+    }
+
+    if (!silent) {
+      if (ok) toast("✅ Reconnected — you can save now");
+      else toast("❌ Cannot reach Firebase", "err");
+    }
+  } catch (e) {
+    updateConnBadge("offline", "Reconnect failed");
+    if (!silent) toast("Reconnect failed: " + (e.message || ""), "err");
+  } finally { if (btn) btn.classList.remove("spinning"); }
+}
+
+/* ============ DIAGNOSTICS ============ */
+async function runDiagnostics() {
+  const out = document.getElementById("diagOutput");
+  out.style.display = "block";
+  out.textContent = "";
+
+  const log = (line) => { out.textContent += line + "\n"; };
+
+  log("═══ DIAGNOSTIC REPORT ═══");
+  log("Time: " + new Date().toLocaleString());
+  log("");
+
+  log("1. BROWSER NETWORK");
+  log("   navigator.onLine: " + navigator.onLine);
+  log("   Connection state: " + connState);
+  log("");
+
+  log("2. FIREBASE INIT");
+  log("   Firebase ready: " + IS_FIREBASE_READY);
+  const cfg = loadDeviceConfig();
+  log("   Config saved: " + (cfg ? "YES" : "NO"));
+  if (cfg) log("   Project ID: " + cfg.projectId);
+  log("");
+
+  log("3. AUTHENTICATION");
+  log("   Logged in: " + (CURRENT_USER ? "YES" : "NO"));
+  if (CURRENT_USER) {
+    log("   Email: " + CURRENT_USER.email);
+    log("   UID: " + CURRENT_USER.uid);
+    try {
+      const token = await CURRENT_USER.getIdToken(true);
+      log("   Token refresh: ✅ OK (length " + token.length + ")");
+    } catch (e) {
+      log("   Token refresh: ❌ " + e.message);
+    }
+  } else {
+    log("   ⚠️ NOT LOGGED IN — writes will fail!");
+  }
+  log("");
+
+  log("4. FIRESTORE");
+  log("   DB object: " + (FB_DB ? "✅ initialized" : "❌ missing"));
+  log("");
+
+  log("5. READ TEST (getDoc config/site)");
+  if (FB_DB) {
+    try {
+      const t0 = Date.now();
+      const snap = await getDoc(doc(FB_DB, "config", "site"));
+      log("   ✅ READ OK in " + (Date.now() - t0) + "ms");
+      log("   Document exists: " + snap.exists());
+    } catch (e) {
+      log("   ❌ READ FAILED");
+      log("   Code: " + (e.code || "none"));
+      log("   Message: " + e.message);
+      if (e.code === "unavailable") log("   → Network can't reach Firestore.");
+      if (e.code === "permission-denied") log("   → Rules block reads.");
+    }
+  }
+  log("");
+
+  log("6. WRITE TEST");
+  if (FB_DB && CURRENT_USER) {
+    const testId = "_diagnostic_" + Date.now();
+    try {
+      const t0 = Date.now();
+      await setDoc(doc(FB_DB, "_diagnostics", testId), { ts: Date.now(), user: CURRENT_USER.email });
+      log("   ✅ WRITE OK in " + (Date.now() - t0) + "ms");
+      try {
+        await deleteDoc(doc(FB_DB, "_diagnostics", testId));
+        log("   ✅ DELETE OK");
+      } catch (e) {
+        log("   ⚠️ DELETE failed: " + e.code);
+      }
+    } catch (e) {
+      log("   ❌ WRITE FAILED");
+      log("   Code: " + (e.code || "none"));
+      log("   Message: " + e.message);
+      if (e.code === "permission-denied") {
+        log("   → Firestore Rules block writes!");
+        log("   → Fix: allow write: if request.auth != null");
+      }
+      if (e.code === "unavailable") log("   → Client offline. Reconnect.");
+    }
+  } else {
+    log("   ⏭ Skipped (not logged in or DB missing)");
+  }
+  log("");
+
+  log("7. COLLECTION COUNTS");
+  if (FB_DB) {
+    for (const c of ["slides", "events", "officers"]) {
+      try {
+        const snap = await getDocs(collection(FB_DB, c));
+        log("   " + c + ": " + snap.size + " docs");
+      } catch (e) {
+        log("   " + c + ": ❌ " + e.code);
+      }
+    }
+  }
+
+  log("");
+  log("═══ END ═══");
+}
+
+/* ============ CONTACT ============ */
+function submitContact(e) {
+  e.preventDefault();
+  toast("Thank you! We'll contact you soon.");
+  e.target.reset();
+}
+
+/* ============ INIT ============ */
+document.getElementById("year").textContent = new Date().getFullYear();
+renderAll();
+updateConnBadge(navigator.onLine ? "connecting" : "offline");
+
+(function autoInit() {
+  const cfg = loadDeviceConfig();
+  if (cfg) {
+    initFirebase(cfg).then(() => {
+      if (navigator.onLine) startConnectionMonitor();
+    }).catch((e) => console.warn("Auto-init failed:", e.message));
+  }
+})();
+
+/* ============ EXPOSE HANDLERS ============ */
+window.openAdminFlow = openAdminFlow;
+window.closeAdminFlow = closeAdminFlow;
+window.submitConfig = submitConfig;
+window.doLogin = doLogin;
+window.doLogout = doLogout;
+window.closeAdmin = closeAdmin;
+window.switchTab = switchTab;
+window.addSlide = addSlide;
+window.addEvent = addEvent;
+window.confirmDelete = confirmDelete;
+window.cancelDelete = cancelDelete;
+window.doDelete = doDelete;
+window.saveProfile = saveProfile;
+window.uploadLeaderPhoto = uploadLeaderPhoto;
+window.saveLeader = saveLeader;
+window.addOfficer = addOfficer;
+window.clearDeviceConfig = clearDeviceConfig;
+window.openConfigModal = openConfigModal;
+window.closeNav = closeNav;
+window.submitContact = submitContact;
+window.applySyncCode = applySyncCode;
+window.generateSyncCode = generateSyncCode;
+window.copySyncCode = copySyncCode;
+window.downloadSyncCode = downloadSyncCode;
+window.pullFromCloud = pullFromCloud;
+window.pushToCloud = pushToCloud;
+window.reconnectFirebase = reconnectFirebase;
+window.healthCheck = healthCheck;
+window.runDiagnostics = runDiagnostics;
+</script>
+</body>
+</html>
