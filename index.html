@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We'll Be Back Soon!</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+    }
+
+    /* Floating bubbles */
+    .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+        animation: float 8s infinite ease-in-out;
+    }
+
+    .b1 {
+        width: 120px;
+        height: 120px;
+        left: 5%;
+        top: 10%;
+    }
+
+    .b2 {
+        width: 80px;
+        height: 80px;
+        right: 10%;
+        top: 20%;
+        animation-delay: 2s;
+    }
+
+    .b3 {
+        width: 150px;
+        height: 150px;
+        right: 3%;
+        bottom: 5%;
+        animation-delay: 4s;
+    }
+
+    @keyframes float {
+        0%,100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-30px);
+        }
+    }
+
+    .container {
+        width: 92%;
+        max-width: 650px;
+        text-align: center;
+        padding: 45px 30px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.13);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,0.25);
+        box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        position: relative;
+        z-index: 5;
+    }
+
+    /* Robot */
+    .robot {
+        font-size: 90px;
+        display: inline-block;
+        animation: robotMove 2s infinite ease-in-out;
+        filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
+    }
+
+    @keyframes robotMove {
+        0%,100% {
+            transform: rotate(-5deg) translateY(0);
+        }
+        50% {
+            transform: rotate(5deg) translateY(-12px);
+        }
+    }
+
+    h1 {
+        font-size: clamp(32px, 7vw, 55px);
+        margin: 15px 0 10px;
+    }
+
+    .highlight {
+        color: #ffe66d;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        line-height: 1.6;
+        opacity: 0.92;
+        margin-bottom: 25px;
+    }
+
+    /* Gear */
+    .gear {
+        display: inline-block;
+        font-size: 48px;
+        animation: spin 3s linear infinite;
+        margin: 5px;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .funny {
+        background: rgba(0,0,0,0.15);
+        padding: 15px;
+        border-radius: 15px;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    /* Progress */
+    .progress-box {
+        width: 100%;
+        height: 15px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 20px 0 10px;
+    }
+
+    .progress {
+        height: 100%;
+        width: 65%;
+        border-radius: 20px;
+        background: linear-gradient(90deg, #ffe66d, #ff9f43);
+        animation: loading 3s infinite ease-in-out;
+    }
+
+    @keyframes loading {
+        0% {
+            width: 10%;
+        }
+        50% {
+            width: 85%;
+        }
+        100% {
+            width: 35%;
+        }
+    }
+
+    .status {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 13px 28px;
+        border-radius: 30px;
+        background: white;
+        color: #6848a8;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .footer {
+        margin-top: 25px;
+        font-size: 13px;
+        opacity: 0.7;
+    }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+        .container {
+            padding: 35px 20px;
+        }
+
+        .robot {
+            font-size: 70px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+
+<div class="container">
+
+    <div class="robot">🤖</div>
+
+    <h1>
+        Oops! We're <span class="highlight">Cooking!</span> 🛠️
+    </h1>
+
+    <p class="subtitle">
+        Our website is taking a little nap 😴
+        <br>
+        Don't worry... our robots are working hard!
+    </p>
+
+    <div>
+        <span class="gear">⚙️</span>
+        <span class="gear" style="animation-duration:2s;">⚙️</span>
+        <span class="gear" style="animation-duration:4s;">⚙️</span>
+    </div>
+
+    <div class="funny">
+        😂 <strong>Maintenance Mode Activated!</strong><br>
+        Please don't disturb the engineers...
+        They are probably drinking coffee ☕
+    </div>
+
+    <div class="progress-box">
+        <div class="progress"></div>
+    </div>
+
+    <div class="status">
+        🔧 System upgrade in progress...
+    </div>
+
+    <a href="/" class="button">
+        🔄 Try Again
+    </a>
+
+    <div class="footer">
+        © 2026 • We'll be back shortly 🚀
+    </div>
+
+</div>
+
+</body>
+</html>
